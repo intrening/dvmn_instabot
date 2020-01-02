@@ -14,10 +14,7 @@ def is_user_exist(insta_bot, user_name):
 
 def get_mentioned_users(comment):
     pattern = r'(?:@)([A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\.(?!\.))){0,28}(?:[A-Za-z0-9_]))?)'
-    return re.findall(
-        pattern=pattern,
-        string=comment['text'],
-    )
+    return re.findall(pattern=pattern, string=comment['text'])
 
 
 def is_one_of_users_real(insta_bot, users):
@@ -27,7 +24,7 @@ def is_one_of_users_real(insta_bot, users):
     return False
 
 
-if __name__ == "__main__":
+def main():
     load_dotenv()
     INSTA_LOGIN = os.getenv("INSTA_LOGIN")
     INSTA_PASSWORD = os.getenv("INSTA_PASSWORD")
@@ -41,7 +38,6 @@ if __name__ == "__main__":
 
     insta_bot = Bot()
     insta_bot.login(username=INSTA_LOGIN, password=INSTA_PASSWORD)
-
     media_id = insta_bot.get_media_id_from_link(media_link)
     media_author_id = insta_bot.get_user_id_from_username(media_author)
     author_followers = insta_bot.get_user_followers(media_author_id)
@@ -58,3 +54,7 @@ if __name__ == "__main__":
 
     accepted_users = set([comment['user_id'] for comment in accepted_comments])
     pprint(accepted_users)
+
+
+if __name__ == "__main__":
+    main()
