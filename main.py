@@ -26,8 +26,8 @@ def is_one_of_users_real(insta_bot, users):
 
 def main():
     load_dotenv()
-    INSTA_LOGIN = os.getenv("INSTA_LOGIN")
-    INSTA_PASSWORD = os.getenv("INSTA_PASSWORD")
+    insta_login = os.getenv("INSTA_LOGIN")
+    insta_password = os.getenv("INSTA_PASSWORD")
 
     parser = argparse.ArgumentParser()
     parser.add_argument("media_link")
@@ -37,7 +37,7 @@ def main():
     media_author = args.media_author
 
     insta_bot = Bot()
-    insta_bot.login(username=INSTA_LOGIN, password=INSTA_PASSWORD)
+    insta_bot.login(username=insta_login, password=insta_password)
     media_id = insta_bot.get_media_id_from_link(media_link)
     media_author_id = insta_bot.get_user_id_from_username(media_author)
     author_followers = insta_bot.get_user_followers(media_author_id)
