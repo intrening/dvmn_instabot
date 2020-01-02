@@ -123,3 +123,14 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+blacklist.txt
+comments.txt
+followed.txt
+example of comments
+friends.txt
+nakedbizmarket_uuid_and_cookie.json
+nakedbizmarket.checkpoint
+skipped.txt
+unfollowed.txt
+whitelist.txt
+.vscode/launch.json
