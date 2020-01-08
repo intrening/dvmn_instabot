@@ -16,14 +16,7 @@ def get_mentioned_users(comment):
 
 
 def is_one_of_users_real(insta_bot, users):
-    #TODO: вопрос, так как у инстабота ограниченные возможности и его очень быстро банят,
-    #я хочу сделать как можно меньше проверок и не проверять, существуют все ли юзеры.
-    #Достаточно проверить, что существует хотя бы один юзер из списка.
-    #тогда я не могу просто вернуть булево значение без if, может, есть какое то решение?
-    for user in users:
-        if is_user_exist(insta_bot, user):
-            return True
-    return False
+    return any(is_user_exist(insta_bot, user) for user in users)
 
 
 def main():
